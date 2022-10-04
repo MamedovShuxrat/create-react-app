@@ -1,0 +1,26 @@
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.products-list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.products-list__item{
+    width: 20%;
+    background-color: aqua;
+    padding: 20px;
+    cursor: pointer;
+
+}
+
+.products-item{
+    margin: 40px 0;
+    background-color: brown;
+    padding: 20px;
+}
