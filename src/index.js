@@ -7,8 +7,3 @@ root.render(
     <App />
 )
 
-root.render(
-    <div>
-        hello
-    </div>
-)   
