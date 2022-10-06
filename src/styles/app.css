@@ -3,6 +3,36 @@
     margin: 0 auto;
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+li {
+    background-color: aliceblue;
+    list-style: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+a {
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    color: blueviolet;
+    font-weight: 500;
+
+}
+
+
+.active{
+    color: black;
+
+}
+
+
 .products-list{
     display: flex;
     justify-content: space-between;
@@ -23,4 +53,13 @@
     margin: 40px 0;
     background-color: brown;
     padding: 20px;
+}
+
+.btn{
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 8px;
 }

@@ -1,20 +1,21 @@
-import { useState, useEffect } from "react";
-
+import { useState, useEffect} from "react";
+import {useParams} from "react-router-dom"
 function ProductsItem(props) {
   const [item, setList] = useState({});
   const url = "https://fakestoreapi.com";
 
+  let params = useParams()
   useEffect(() => {
-    if (props.id) {
-      fetch(`${url}/products/${props.id}`)
+    if (params.id) {
+      fetch(`${url}/products/${params.id}`)
         .then((res) => res.json())
         .then((res) => {
           setList(res);
         });
     }
-  }, [props.id]);
+  }, [params.id]);
 
-  return props.id &&  (
+  return params.id &&  (
     <div className="products-item">
       <div> {item.id}</div>
       <div> {item.name}</div>
