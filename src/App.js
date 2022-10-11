@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductsList from "./components/products/ProductsList";
 import ProductsItem from "./components/products/ProductsItem";
 import ProductsForm from "./components/products/ProductsForm"
@@ -11,6 +11,13 @@ import CustomLink from "./components/CustomLink";
 import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 
 function App() {
+
+  const [newProductsList, onChange] = useState([])
+
+  function onNewProduct(product){
+    console.log(product);
+    onChange([...newProductsList, product])
+  }
   return (
     <div>
       <BrowserRouter>
@@ -22,12 +29,12 @@ function App() {
         </nav>
         <Routes>
           <Route path="/">
-            <Route index element={<Home></Home>}></Route>
+            <Route index element={<Home/>}></Route>
             <Route path="about" element={<About></About>}></Route>
             <Route path="products" element={<Products />}>
-              <Route index element={<ProductsList></ProductsList>}></Route>
-              <Route path=":id" element={<ProductsItem></ProductsItem>}></Route>
-              <Route path="new" element={<ProductsForm></ProductsForm>}></Route>
+              <Route index element={<ProductsList newProductsList={newProductsList}/>}></Route>
+              <Route path=":id" element={<ProductsItem newProductsList={newProductsList}/>}></Route>
+              <Route path="new" element={<ProductsForm onNewProduct={onNewProduct}/>}></Route>
             {/* <Route path="/:id/edit" element={<Products></Products>}></Route> */}
             </Route>
           </Route>

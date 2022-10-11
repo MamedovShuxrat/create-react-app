@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-function ProductsList() {
+function ProductsList(props) {
   const [list, setList] = useState([]);
   // const [itemId, setItemId] = useState(null);
   const url = "https://fakestoreapi.com";
@@ -10,7 +10,7 @@ function ProductsList() {
     fetch(`${url}/products`)
       .then((res) => res.json())
       .then((res) => {
-        setList(res);
+        setList(res.concat(props.newProductsList));
       });
   }, []);
 
